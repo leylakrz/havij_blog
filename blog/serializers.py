@@ -5,9 +5,6 @@ from blog.models import Post, Tag
 
 
 class PostSerializer(serializers.ModelSerializer):
-    """
-    serialize of gpu_group model objects for admin
-    """
     tags = SlugRelatedField(queryset=Tag.objects, many=True, slug_field='name')
 
     class Meta:
