@@ -1,3 +1,4 @@
+import jdatetime
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -9,6 +10,10 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+    @property
+    def created_at_jalali(self):
+        return jdatetime.datetime.fromgregorian(datetime=self.created_at)
 
 
 class Tag(BaseModel):
